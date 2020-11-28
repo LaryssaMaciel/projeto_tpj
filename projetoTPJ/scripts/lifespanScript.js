@@ -6,6 +6,7 @@ export const Diagnostics = require('Diagnostics');
 
 var num1, num2, num3, num4, num5, num6, num7;
 
+// variaveis q vao pegar os componentes 'texto'
 num1 = Patches.outputs.getScalar('num1');
 num2 = Patches.outputs.getScalar('num2');
 num3 = Patches.outputs.getScalar('num3');
