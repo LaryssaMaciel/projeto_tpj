@@ -4,16 +4,19 @@ const Patches = require('Patches');
 // Use export keyword to make a symbol available in scripting debug console
 export const Diagnostics = require('Diagnostics');
 
-var num1, num2, num3, num4;
+var num1, num2, num3, num4, num5, num6, num7;
 
 num1 = Patches.outputs.getScalar('num1');
 num2 = Patches.outputs.getScalar('num2');
 num3 = Patches.outputs.getScalar('num3');
 num4 = Patches.outputs.getScalar('num4');
+num5 = Patches.outputs.getScalar('num5');
+num6 = Patches.outputs.getScalar('num6');
+num7 = Patches.outputs.getScalar('num7');
 
-var final1, final2, final3, final4 = 0;
+var final1, final2, final3, final4, final5, final6, final7 = 0;
 
-var finalText1, finalText2, finalText3, finalText4 = "";
+var finalText1, finalText2, finalText3, finalText4, finalText5, finalText6, finaltext7 = "";
 
 Promise.all([
     Scene.root.findFirst('Lifespan1') // procura texto
@@ -79,23 +82,50 @@ Promise.all([
     });
 })
 
+Promise.all([
+    Scene.root.findFirst('Lifespan5') // procura texto
+    ]).then(function(results){ // so quando achar, executa isso
+    const scoretext5 = results[0];
 
+    num1.then(val=>{
+        val.monitor().subscribe(({newValue}) => {
+            final5 = newValue;
+        })
+    })
 
+    Patches.outputs.getScalar('num5').then(patchValue => {
+    scoretext5.text = patchValue.toString(); // passa o valor pro texto
+    });
+})
 
+Promise.all([
+    Scene.root.findFirst('Lifespan6') // procura texto
+    ]).then(function(results){ // so quando achar, executa isso
+    const scoretext6 = results[0];
 
+    num1.then(val=>{
+        val.monitor().subscribe(({newValue}) => {
+            final6 = newValue;
+        })
+    })
 
+    Patches.outputs.getScalar('num6').then(patchValue => {
+    scoretext6.text = patchValue.toString(); // passa o valor pro texto
+    });
+})
 
-// Promise.all([
-//     Scene.root.findFirst('Lifespan'),
-// ]).then(function (results) {
-    
-//     const theText = results[0];
-//     Patches.outputs.getScalar('num1').then(patchValue => {
+Promise.all([
+    Scene.root.findFirst('Lifespan7') // procura texto
+    ]).then(function(results){ // so quando achar, executa isso
+    const scoretext7 = results[0];
 
-//         // assign the .text property of 'theText' to the patchValue. 
-//         // convert the patchValue scalar signal to a string using the .toString() method.
-//         theText.text = patchValue.toString();
+    num1.then(val=>{
+        val.monitor().subscribe(({newValue}) => {
+            final7 = newValue;
+        })
+    })
 
-//     });
-
-// });
+    Patches.outputs.getScalar('num7').then(patchValue => {
+    scoretext7.text = patchValue.toString(); // passa o valor pro texto
+    });
+})
