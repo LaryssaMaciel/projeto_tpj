@@ -1,8 +1,8 @@
 # projeto_tpj
-projeto do filtro de instagram
+Projeto do filtro de instagram inspirado no anime Death Note.
+Esse filtro simula o lifespan do 'usuario do death note'.
+Para usar o modo dos olhos de Shinigami, basta piscar. Para voltar para o modo normal, balance a cabeça.
 
-para baixar o projeto:
-
+Para baixar o projeto:
 git clone https://github.com/LaryssaMaciel/projeto_tpj.git
-
-depois so abrir no Spark AR
+Depois, abra o projto no Spark AR.
